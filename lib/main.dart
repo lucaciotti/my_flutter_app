@@ -1,10 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_web_browser/flutter_web_browser.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(new MyApp());
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  
+  openBrowserTab() async {
+    await FlutterWebBrowser.openWebPage(url: "https://issuu.com/krona-koblenz/docs/la_kiakkiera_n1?mode=window&backgroundColor=%23222222", androidToolbarColor: Colors.deepPurple);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Plugin example app'),
+        ),
+        body: new Center(
+          child: new RaisedButton(
+            onPressed: () => openBrowserTab(),
+            child: new Text('Open Flutter website'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/* class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -105,4 +135,4 @@ class RandomWordsState extends State<RandomWords> {
       body: _buildSuggestions(),
     );
   }
-}
+} */
