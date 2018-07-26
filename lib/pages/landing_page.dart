@@ -30,13 +30,13 @@ class LandingPageState extends State<LandingPage> with SingleTickerProviderState
     return new Material(
       color: Colors.white,
       child: new InkWell(
-        onTap: () => Navigator.of(context).pushNamed('/home'),//  .pushReplacementNamed('/home'),//print('Next Page'),
+        onTap: () => Navigator.of(context).pushReplacementNamed('/home'),//print('Next Page'),
         onDoubleTap: () => updateWidget(),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Transform.rotate(
-              angle: _logoAnimation.value * 2 * PI,
+              angle: _logoAnimation.value * 2 * pi,
               child: new Transform.scale(
                 scale: _logoAnimation.value,
                 child: new Image.asset(

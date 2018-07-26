@@ -3,4 +3,24 @@
 http://search.issuu.com/api/2_0/document?q=title:kiakkiera&username=Krona-Koblenz&pageSize=50&startIndex=0&sortBy=epoch&responseParams=*
 
 **RESPONSE
-{"response": {"start": 0, "numFound": 18, "docs": [{"username": "krona-koblenz", "rating": 0.0, "description": "", "title": "La kiakkiera n18", "pagecount": 8, "languages": [""], "epoch": "2017-10-26T00:00:00Z", "tag": [""], "uniqueId": "171026151701-ffa9794bd73951c0ab595af5e26ed274", "docname": "la_kiakkiera_n18", "content_flag": "0", "documentId": "171026151701-ffa9794bd73951c0ab595af5e26ed274", "newUniqueId": "ffa9794bd73951c0ab595af5e26ed274"}]}}
+{
+	"response": {
+		"start": 0, 
+		"numFound": 18, 
+		"docs": [{
+					"username": "krona-koblenz", 
+					"rating": 0.0, 
+					"description": "", 
+					"title": "La kiakkiera n18", 
+					"pagecount": 8, 
+					"languages": [""], 
+					"epoch": "2017-10-26T00:00:00Z", 
+					"tag": [""], 
+					"uniqueId": "171026151701-ffa9794bd73951c0ab595af5e26ed274", 
+					"docname": "la_kiakkiera_n18", 
+					"content_flag": "0", 
+					"documentId": "171026151701-ffa9794bd73951c0ab595af5e26ed274", 
+					"newUniqueId": "ffa9794bd73951c0ab595af5e26ed274"
+				}]
+	}
+}
