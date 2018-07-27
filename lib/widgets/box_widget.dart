@@ -32,9 +32,7 @@ class BoxWidget extends StatelessWidget {
             height: 35.0,
           ),
           InkWell(
-            onTap: () => (this._route=='/cataloghi' ? Navigator.of(context).pushNamed('/kiakkiera') :
-              openBrowserTab(
-                'https://issuu.com/krona-koblenz/docs/la_kiakkiera_n1?mode=window&backgroundColor=%23222222')),
+            onTap: () => Navigator.of(context).pushNamed(this._route),
             child: Container(
               decoration: new BoxDecoration(
                   image: DecorationImage(

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 // import 'package:carousel/carousel.dart';
 
 import 'package:flutter_app/widgets/box_widget.dart';
+import 'package:flutter_app/pages/tabs/pubication_tab.dart';
+import 'package:flutter_app/pages/tabs/about_tab.dart';
+import 'package:flutter_app/pages/tabs/video_tab.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,6 +12,24 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+
+  int _bottomNavBarIndex = 0;
+  PublicationTab pubTab;
+  AboutTab aboutTab;
+  VideoTab videoTab;
+  List<Widget> pages;
+  Widget currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    pubTab = PublicationTab();
+    aboutTab = AboutTab();
+    videoTab = VideoTab();
+    pages = [pubTab, videoTab, aboutTab];
+    currentPage = pubTab;
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,60 +40,31 @@ class HomePageState extends State<HomePage> {
       ),
       backgroundColor: Colors.white70,
       
-      body:  new SingleChildScrollView(
-        child: new Container(
-          padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 0.0),
-          child: new Column(
-            children: <Widget>[
-              new Row( 
-                children: <Widget>[
-                  BoxWidget('La Kiakkiera', 'http://www.koblenz.it/wp-content/uploads/2012/07/www.koblenz.it/kiakkiera-top.jpg', '/kiakkiera'),
-                ]
-              ),
-              new Row( 
-                children: <Widget>[
-                  BoxWidget('Access', 'http://www.krona.es/wp-content/uploads/2012/07/es.krona.it/Acces-up.jpg', '/access'),
-                ]
-              ),
-              new Row( 
-                children: <Widget>[
-                  BoxWidget('Catalogo Krona', 'http://www.koblenz.it/wp-content/uploads/2012/07/www.koblenz.it/kiakkiera-top.jpg', '/cataloghi'),
-                ]
-              ),
-              new Row( 
-                children: <Widget>[
-                  BoxWidget('Catalogo Koblenz', 'http://www.krona.es/wp-content/uploads/2012/07/es.krona.it/Acces-up.jpg', '/access'),
-                ]
-              ),
-              new Row( 
-                children: <Widget>[
-                  BoxWidget('La Charla', 'http://www.krona.es/wp-content/uploads/2012/07/es.krona.it/Acces-up.jpg', '/access'),
-                ]
-              ),
-              new Row( 
-                children: <Widget>[
-                  BoxWidget('Le Petit Bavardeur', 'http://www.krona.es/wp-content/uploads/2012/07/es.krona.it/Acces-up.jpg', '/access'),
-                ]
-              ),
-            ]),
-        ),
-      ),
+      body: currentPage,
 
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.import_contacts),
-          title: Text('Pubblicazioni'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.slideshow),
-          title: Text('Video'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline),
-          title: Text('About'),
-        ),
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: this._bottomNavBarIndex,
+        onTap: (index) {
+          setState(() {
+            this._bottomNavBarIndex = index;
+            this.currentPage = pages[index];
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.import_contacts),
+            title: Text('Pubblicazioni'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.slideshow),
+            title: Text('Video'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            title: Text('About'),
+          ),
+        ]
+      ),
     );
   }
-
 }
