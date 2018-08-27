@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -18,11 +20,21 @@ class LandingPageState extends State<LandingPage> with SingleTickerProviderState
     _logoAnimation = new CurvedAnimation(parent: _logoAnimationController, curve: Curves.elasticOut);
     _logoAnimation.addListener(() => this.setState(() {}));
     _logoAnimationController.forward();
+    startTimeout();
   }
 
   void updateWidget(){
     _logoAnimationController.reset();
     _logoAnimationController.forward();
+  }
+
+  startTimeout() {
+    const timeout = const Duration(seconds: 5);
+    return new Timer(timeout, handleTimeout);
+  }
+
+  void handleTimeout() {  // callback function
+    Navigator.of(context).pushReplacementNamed('/home');
   }
 
   @override
