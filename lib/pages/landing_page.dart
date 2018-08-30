@@ -17,7 +17,7 @@ class LandingPageState extends State<LandingPage> with SingleTickerProviderState
   void initState() {
     super.initState();
     _logoAnimationController = new AnimationController(duration: new Duration(seconds: 5), vsync: this);
-    _logoAnimation = new CurvedAnimation(parent: _logoAnimationController, curve: Curves.elasticOut);
+    _logoAnimation = new CurvedAnimation(parent: _logoAnimationController, curve: Curves.elasticOut );
     _logoAnimation.addListener(() => this.setState(() {}));
     _logoAnimationController.forward();
     startTimeout();
@@ -47,7 +47,7 @@ class LandingPageState extends State<LandingPage> with SingleTickerProviderState
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Transform.rotate(
+            /* new Transform.rotate(
               angle: _logoAnimation.value * 2 * pi,
               child: new Transform.scale(
                 scale: _logoAnimation.value,
@@ -55,6 +55,13 @@ class LandingPageState extends State<LandingPage> with SingleTickerProviderState
                   'assets/images/logo.png',
                   width: 150.0,
                 ),
+              ),
+            ), */
+            new Transform.scale(
+              scale: _logoAnimation.value,
+              child: new Image.asset(
+                'assets/images/logo.png',
+                width: 150.0,
               ),
             ),
             new Padding(

@@ -82,7 +82,7 @@ class MagazinePageState extends State<MagazinePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget._title),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black,
       ),
       body: Column(children: <Widget>[
           HeadingBox(widget._netImage),

@@ -85,7 +85,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             style: TextStyle(fontSize: 20.0),
           ),
         ]),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black,
       ),
 
       backgroundColor: Colors.white70,
